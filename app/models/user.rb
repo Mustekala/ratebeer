@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :ratings
-  has_many :beers, through: :ratings
+  has_many :beers, through: :ratings, dependent: :destroy
 
   validates :username, uniqueness: true,
                        length: { minimum: 3,
