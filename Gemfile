@@ -72,6 +72,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'httparty'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
 end
@@ -85,4 +87,5 @@ group :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
