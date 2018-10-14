@@ -1,6 +1,6 @@
 # Ratebeer
 
-Link to Heroku app:
+Link to Heroku app (not yet updated, i will update it in 15.10):
 
 https://calm-bayou-98722.herokuapp.com/breweries
 
