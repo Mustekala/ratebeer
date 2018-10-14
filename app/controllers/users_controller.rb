@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :close]
+  before_action :ensure_that_admin, only: [:close]
 
   # GET /users
   # GET /users.json
@@ -60,6 +61,14 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def close
+    @user.closed = true
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'Account was successfully closed.' }
       format.json { head :no_content }
     end
   end

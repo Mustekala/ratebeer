@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @beer_club.name %>
@@ -29,7 +27,7 @@
 
     <%= form_for(@membership) do |f| %>
     <%= f.hidden_field :beer_club_id %>
-    <%= f.submit value:"join the club" %>
+    <%= f.submit class:"btn btn-primary", value:"join the club" %>
     <% end %>
   <% end %>
   <% if current_user and current_user.beer_clubs.include? @beer_club %>

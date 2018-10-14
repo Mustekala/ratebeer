@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :style %>
     <%= form.select:style_id, options_for_select(@styles) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :brewery %>
     <%= form.select:brewery_id, options_from_collection_for_select(@breweries, :id, :name) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
