@@ -43,9 +43,9 @@ class User < ApplicationRecord
 
     averages.max_by{ |r| r[:score] }[:brewery]
   end
-  
-  def self.top(n)
+
+  def self.top(amount)
     sorted_by_rating_in_desc_order = User.all.sort_by{ |b| -(b.average_rating || 0) }
-    sorted_by_rating_in_desc_order.take(n)
+    sorted_by_rating_in_desc_order.take(amount)
   end
 end

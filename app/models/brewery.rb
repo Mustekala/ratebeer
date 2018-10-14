@@ -9,8 +9,8 @@ class Brewery < ApplicationRecord
                                    less_than_or_equal_to: ->(_) { Time.now.year },
                                    only_integer: true }
   scope :active, -> { where active: true }
-  scope :retired, -> { where active: [nil,false] }
-                                 
+  scope :retired, -> { where active: [nil, false] }
+
   def print_report
     puts name
     puts "established at year #{year}"
@@ -22,8 +22,8 @@ class Brewery < ApplicationRecord
     puts "changed year to #{year}"
   end
 
-  def self.top(n)
+  def self.top(amount)
     sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating || 0) }
-    sorted_by_rating_in_desc_order.take(n)
-  end  
+    sorted_by_rating_in_desc_order.take(amount)
+  end
 end
