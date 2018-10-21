@@ -1,6 +1,10 @@
 class RatingsController < ApplicationController
   def index
-    @ratings = Rating.all
+    @ratings = Rating.recent
+    @beers = Beer.top 3
+    @styles = Style.top 3
+    @breweries = Brewery.top 3
+    @users = User.top 3
   end
 
   def new
@@ -13,7 +17,7 @@ class RatingsController < ApplicationController
     @rating.user = current_user
 
     if current_user.nil?
-      redirect_to signin_path, notice: 'you should be signed in'
+      redirect_to signin_path, notice: 'You should be signed in'
     elsif @rating.save
       redirect_to user_path current_user
     else
