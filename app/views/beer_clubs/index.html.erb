@@ -3,9 +3,9 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Founded</th>
-      <th>City</th>
+      <th> <%= link_to 'Name', beer_clubs_path(order:"name") %> </th>
+      <th> <%= link_to 'Founded', beer_clubs_path(order:"founded") %> </th>
+      <th> <%= link_to 'City', beer_clubs_path(order:"city") %> </th>
       <th colspan="3"></th>
     </tr>
   </thead>

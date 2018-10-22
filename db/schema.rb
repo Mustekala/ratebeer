@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_205637) do
+ActiveRecord::Schema.define(version: 2018_10_22_172220) do
 
   create_table "beer_clubs", force: :cascade do |t|
     t.string "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_10_21_205637) do
     t.boolean "admin"
     t.boolean "active"
     t.boolean "closed"
+    t.index ["username"], name: "index_users_on_username"
   end
 
 end

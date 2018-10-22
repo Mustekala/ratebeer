@@ -1,41 +1,45 @@
 <h2>Ratings</h2>
 
-<div class="row">
-  <div class="col-4 col-sm-4">
-    <%= render 'top', items: @beers, label: 'beers' %>
-  </div>
-  <div class="col-4 col-sm-4">
-    <%= render 'top', items: @breweries, label: 'breweries' %>
-  </div>
-  <div class="col-4 col-sm-4">
-    <%= render 'top', items: @styles, label: 'styles' %>
+<% cache 'ratinglist', expires_in:10.minutes do %>
+
+  <div class="row">
+    <div class="col-4 col-sm-4">
+      <%= render 'top', items: @beers, label: 'beers' %>
+    </div>
+    <div class="col-4 col-sm-4">
+      <%= render 'top', items: @breweries, label: 'breweries' %>
+    </div>
+    <div class="col-4 col-sm-4">
+      <%= render 'top', items: @styles, label: 'styles' %>
+    </div>  
   </div>  
-</div>  
 
-<h4>Most active users</h4>
+  <h4>Most active users</h4>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th></th>
-      <th>ratings</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= link_to user.username, user %></td>
-        <td><%= user.ratings.count %></td>
+        <th></th>
+        <th>ratings</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<h4>recent ratings</h4>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.username, user %></td>
+          <td><%= user.ratings.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<ul>
- <% @ratings.each do |rating| %>
-   <li> <%= rating %> by <%= link_to rating.user.username, rating.user %> at <%= rating.created_at %></li>
- <% end %>
-</ul>
+  <h4>recent ratings</h4>
+
+  <ul>
+  <% @ratings.each do |rating| %>
+    <li> <%= rating %> by <%= link_to rating.user.username, rating.user %> at <%= rating.created_at %></li>
+  <% end %>
+  </ul>
+
+<% end %>  
