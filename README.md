@@ -1,5 +1,7 @@
 # Ratebeer
 
+Web app for rating beers. Part of Web programming course.
+
 Link to Heroku app
 
 https://calm-bayou-98722.herokuapp.com/breweries
